@@ -51,13 +51,17 @@
 }
 
 body {
-  overflow-x: hidden;
   background-color: var(--backgorund-color);
   transition: transform 0.3s ease-in-out;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -398,7 +402,7 @@ ul {
 }
 
 #team {
-  padding-top: 1em;
+  padding-top: 5em;
 
   & .team-description {
     width: 100%;
@@ -409,6 +413,7 @@ ul {
 
     & h2 {
       text-align: center;
+      padding-bottom: 5em;
     }
   }
 
@@ -440,7 +445,7 @@ ul {
     }
 
     & .team-right {
-      padding-top: 1.2em;
+      padding: 5em 0;
 
       & .team {
         width: 100%;
@@ -536,23 +541,36 @@ ul {
 }
 
 body.show-mobile-menu .nav-bar .nav-bar-list {
-  display: block;
-  background-color: var(--backgorund-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 50%,
+    var(--secondary-color) 100%
+  );
+  opacity: 0.98;
   min-height: 100vh;
   width: 100vw;
   position: absolute;
-  transform: translate(0%, 7%);
+  z-index: 0;
   right: 0%;
   bottom: 0%;
+  overflow-y: hidden;
+
   & .nav-item {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 1.2em;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 1.8em;
+    left: 0%;
   }
   & a {
-    color: var(--primary-color);
+    color: var(--backgorund-color);
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -603,17 +621,18 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
   #menu-close-button,
   #menu-open-button {
     position: relative;
-    z-index: 100;
+    z-index: 1;
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
 
+  /* Initially hide the close and show the open button on mobile */
+
   #menu-open-button {
     display: block; /* Show open button */
   }
 
-  /* Initially hide the close button on mobile */
   #menu-close-button {
     display: none; /* Hide close button */
   }
@@ -627,15 +646,6 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
     display: none;
   }
 
-  /* Show buttons for opening/closing */
-  #menu-open-button {
-    display: block;
-  }
-
-  #menu-close-button {
-    display: none;
-  }
-
   /* Adjustments to show buttons when menu is open or closed */
   body.show-mobile-menu #menu-open-button {
     display: none;
@@ -643,6 +653,18 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
 
   body.show-mobile-menu #menu-close-button {
     display: block;
+  }
+
+  /* Disable scrolling when the mobile menu is open */
+  body.show-mobile-menu,
+  html.show-mobile-menu {
+    overflow: hidden;
+  }
+
+  /* Restore scrolling when the mobile menu is closed */
+  body.hide-mobile-menu,
+  html.hide-mobile-menu {
+    overflow-x: hidden;
   }
 
   #hero-section {
@@ -674,7 +696,7 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.4em 1.6em;
+    padding: 3em 1.6em;
 
     & #about-us {
       display: flex;
@@ -702,7 +724,7 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
   }
 
   #services {
-    padding: 1.4em 1.6em;
+    padding: 3em 1.6em;
     & .services-content {
       display: flex;
       flex-direction: column;
@@ -721,9 +743,13 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
   }
 
   #team {
-    padding: 1.2em 0;
+    padding-top: 3em;
     & .team-description {
-      padding: 1.4em 1.6em;
+      padding: 0 1.6em;
+      & h2 {
+        text-align: center;
+        padding-bottom: 3em;
+      }
     }
 
     & .team-content {
@@ -743,7 +769,7 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
       }
 
       & .team-right {
-        padding: 1.4em 1.6em;
+        padding: 3em 1.6em;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -762,31 +788,6 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
 }
 
 @media screen and (max-width: 768px) {
-  #what-we-do {
-    padding: 1.2em 1.2em;
-  }
-
-  #services {
-    padding: 1.2em 1em;
-  }
-
-  #team {
-    padding: 1.2em 0;
-    & .team-description {
-      padding: 1.2em 1em;
-    }
-
-    & .team-content {
-      & .team-left {
-        padding: 1.2em 1em;
-      }
-
-      & .team-right {
-        padding: 1.2em 1em;
-      }
-    }
-  }
-
   #contact {
     & .mail-logo {
       justify-content: center;
@@ -813,7 +814,20 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
   }
 }
 
+@media screen and (max-width: 590px) {
+  body.show-mobile-menu .nav-bar .nav-bar-list {
+  & .nav-item {
+    left: 8%;
+  }
+}
+}
+
 @media screen and (max-width: 480px) {
+    body.show-mobile-menu .nav-bar .nav-bar-list {
+    & .nav-item {
+      left: 14%;
+    }
+  }
   #hero-section {
     min-height: 35em;
 
@@ -827,13 +841,6 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
   }
 
   #services {
-    padding: 1.2em 1em;
-    & .services-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
     & .web-services-cards {
       & .card {
         & img {
@@ -872,4 +879,20 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
       }
     }
   }
+}
+
+@media screen and (max-width: 420px) {
+  body.show-mobile-menu .nav-bar .nav-bar-list {
+  & .nav-item {
+    left: 18%;
+  }
+}
+}
+
+@media screen and (max-width: 380px) {
+  body.show-mobile-menu .nav-bar .nav-bar-list {
+  & .nav-item {
+    left: 22%;
+  }
+}
 }
