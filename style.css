@@ -88,6 +88,10 @@ body {
   transition: transform 0.3s ease;
 }
 
+.rotate-svg {
+  transform: rotate(45deg);
+}
+
 /* Apply a rotation to the SVG when the logo container is hovered */
 .logo-container:hover .rotate-svg {
   transform: rotate(360deg);
@@ -239,6 +243,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1.5em;
 }
 
 .logo-container p {
@@ -459,6 +464,17 @@ ul {
           justify-content: center;
         }
 
+        & .services-image-qa {
+          background-color: var(--primary-color);
+          height: 100px;
+          width: 100px;
+          border-radius: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 1.2em;
+        }
+
         & .services-image,
         .services-image-js,
         .services-image-sql {
@@ -506,11 +522,15 @@ ul {
       border-radius: 100px;
       background-color: var(--secondary-color);
       margin-right: 1.2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     & .footer-logo {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
+      transform: translate(45deg);
     }
 
     & .email {
@@ -775,6 +795,11 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
         align-items: center;
 
         & .team {
+          & .services-image-qa {
+            height: 120px;
+            width: 120px;
+            border-radius: 120px;
+          }
           & .services-image,
           .services-image-js,
           .services-image-sql {
@@ -800,8 +825,8 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
       }
 
       & .footer-logo {
-        height: 70px;
-        width: 70px;
+        height: 50px;
+        width: 50px;
       }
     }
 
@@ -816,14 +841,14 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
 
 @media screen and (max-width: 590px) {
   body.show-mobile-menu .nav-bar .nav-bar-list {
-  & .nav-item {
-    left: 8%;
+    & .nav-item {
+      left: 8%;
+    }
   }
-}
 }
 
 @media screen and (max-width: 480px) {
-    body.show-mobile-menu .nav-bar .nav-bar-list {
+  body.show-mobile-menu .nav-bar .nav-bar-list {
     & .nav-item {
       left: 14%;
     }
@@ -855,6 +880,16 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
     & .team-content {
       & .team-right {
         & .team {
+          & .services-image-qa {
+            background-color: var(--primary-color);
+            height: 80px;
+            width: 80px;
+            border-radius: 80px;
+            & img {
+              width: 50px;
+              height: 50px;
+            }
+          }
           & .services-image,
           .services-image-js,
           .services-image-sql {
@@ -883,16 +918,16 @@ body.show-mobile-menu .nav-bar .nav-bar-list {
 
 @media screen and (max-width: 420px) {
   body.show-mobile-menu .nav-bar .nav-bar-list {
-  & .nav-item {
-    left: 18%;
+    & .nav-item {
+      left: 18%;
+    }
   }
-}
 }
 
 @media screen and (max-width: 380px) {
   body.show-mobile-menu .nav-bar .nav-bar-list {
-  & .nav-item {
-    left: 22%;
+    & .nav-item {
+      left: 22%;
+    }
   }
-}
 }
