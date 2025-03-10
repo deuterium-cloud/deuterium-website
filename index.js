@@ -8,7 +8,7 @@ function toggleMobileMenu() {
   if (window.innerWidth <= 1024) {
     // Handle opening of the menu
     menuOpenButton.addEventListener("click", handleMenuOpen);
-    
+
     // Handle closing of the menu
     menuCloseButton.addEventListener("click", handleMenuClose);
 
@@ -81,3 +81,10 @@ toggleMobileMenu();
 
 // Add event listener to check on window resize
 window.addEventListener("resize", toggleMobileMenu);
+
+function openMap() {
+  window.open(
+   "https://www.google.com/maps/place/Ni%C5%A1/@43.4516634,21.8748778,6z/data=!4m6!3m5!1s0x4755b0c240c81f65:0x56319fe3122ac3cd!8m2!3d43.320926!4d21.8954069!16zL20vMDFrXzlo?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D",
+    "_blank"
+  );
+}
